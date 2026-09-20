@@ -1,15 +1,230 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>BarberGo Admin — Panel Cabang & Keuangan</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover, interactive-widget=resizes-content"
+  >
+
+  <!-- =========================
+       BASIC SEO
+  ========================= -->
+  <title>BarberGo Admin Partner — Portal Manajemen Barbershop</title>
+
+  <meta
+    name="description"
+    content="BarberGo Admin Partner adalah portal manajemen untuk partner barbershop dalam mengelola profil bisnis, layanan, capster, reservasi, jadwal, dan operasional barbershop."
+  >
+
+  <meta
+    name="keywords"
+    content="BarberGo Admin Partner, admin barbershop, partner barbershop, manajemen barbershop, dashboard barbershop, admin barber, sistem manajemen barbershop, BarberGo partner, portal partner barber"
+  >
+
+  <meta name="author" content="BarberGo">
+
+  <meta
+    name="robots"
+    content="noindex, nofollow, noarchive, nosnippet"
+  >
+
+  <meta name="theme-color" content="#0B2FD1">
+  <meta name="color-scheme" content="light">
+
+  <!-- =========================
+       CANONICAL
+  ========================= -->
+  <link
+    rel="canonical"
+    href="https://adminpatner.barbergo.world/"
+  >
+
+  <!-- =========================
+       FAVICON
+  ========================= -->
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/favicon.png"
+  >
+
+  <!-- =========================
+       PWA
+  ========================= -->
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="BarberGo Admin Partner"
+  >
+
+  <!-- =========================
+       OPEN GRAPH
+  ========================= -->
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:site_name"
+    content="BarberGo Admin Partner"
+  >
+
+  <meta
+    property="og:title"
+    content="BarberGo Admin Partner — Portal Manajemen Barbershop"
+  >
+
+  <meta
+    property="og:description"
+    content="Portal partner BarberGo untuk mengelola profil barbershop, layanan, capster, reservasi, jadwal, dan operasional bisnis."
+  >
+
+  <meta
+    property="og:url"
+    content="https://adminpatner.barbergo.world/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://adminpatner.barbergo.world/og-image.png"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="BarberGo Admin Partner — Portal Manajemen Barbershop"
+  >
+
+  <meta
+    property="og:locale"
+    content="id_ID"
+  >
+
+  <!-- =========================
+       TWITTER / X
+  ========================= -->
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="BarberGo Admin Partner — Portal Manajemen Barbershop"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Portal partner BarberGo untuk mengelola barbershop, layanan, capster, reservasi, jadwal, dan operasional."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://adminpatner.barbergo.world/og-image.png"
+  >
+
+  <!-- =========================
+       FONTS
+  ========================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================
+       ICONS
+  ========================= -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- =========================
+       QR CODE
+  ========================= -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"
+  ></script>
+
+  <!-- =========================
+       FIREBASE
+  ========================= -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+
+  <!-- =========================
+       STRUCTURED DATA
+  ========================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BarberGo Admin Partner",
+    "alternateName": "BarberGo Partner",
+    "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Business Management",
+    "operatingSystem": "Web",
+
+    "description": "Portal manajemen partner BarberGo untuk mengelola profil barbershop, layanan, capster, reservasi, jadwal, dan operasional bisnis.",
+
+    "url": "https://adminpatner.barbergo.world/",
+
+    "image": "https://adminpatner.barbergo.world/og-image.png",
+
+    "brand": {
+      "@type": "Brand",
+      "name": "BarberGo"
+    },
+
+    "publisher": {
+      "@type": "Organization",
+      "name": "BarberGo",
+      "url": "https://adminpatner.barbergo.world/"
+    }
+  }
+  </script>
 <style>
 :root{--blue:#0B2FD1;--blue2:#2563EB;--bluesoft:#E8F0FF;--bk:#0F172A;--bg:#F8FAFC;--card:#FFFFFF;--tx:#0F172A;--tx2:#64748B;--tx3:#94A3B8;--bd:#E2E8F0;--line:#EDF2F7;--hov:#F1F5F9;--hov2:#F8FAFC;--soft:#F1F5F9;--soft2:#F1F5F9;--soft3:#F1F5F9;--input:#FFFFFF;--selbg:#E8F0FF;--gr:#16A34A;--wn:#F59E0B;--dn:#EF4444;--r:14px;--sh:0 1px 3px rgba(15,23,42,.05)}
 body.dark{--bg:#0A1020;--card:#0F172A;--tx:#F1F5F9;--tx2:#94A3B8;--tx3:#64748B;--bd:#1E293B;--line:#182338;--hov:#16213A;--hov2:#111A30;--soft:#16213A;--soft2:#1E293B;--soft3:#111A30;--input:#0B1322;--selbg:rgba(37,99,235,.2);--sh:0 1px 3px rgba(0,0,0,.5)}
